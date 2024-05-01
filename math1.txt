@@ -1,0 +1,470 @@
+\documentclass{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\newcommand*{\mycircled}[1]{\lower.7ex\hbox{\tikz\draw (0pt,0pt)circle(.4em) node {\makebox[0.5em][c]{\small #1}};}}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tcolorbox}
+\usepackage{mathrsfs}
+\usepackage{abstract}
+\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+\fancypagestyle{mystyle}{
+	\fancyhead{}
+	\fancyhead[L]{\thepage}
+	%\fancyhead[C]{}
+	\fancyhead[R]{洛伦兹力想做功}
+	\renewcommand{\headrulewidth}{0.4pt}
+	%\renewcommand{footrulewidth}{0pt}
+}
+\title{高等数学复习}
+\author{洛伦兹力想做功}
+\date{\today}
+
+\begin{document}
+		\tableofcontents
+	\maketitle\thispagestyle{mystyle}
+	\pagestyle{mystyle}
+	
+	\begin{quote}
+		对本学年所学高数进行复盘整理，重在梳理整个高数框架以及主要内容，可供大家借鉴参考.
+	\end{quote}
+	
+	\section{函数的极限与连续}
+	\subsection{一元数列极限与函数极限}
+	\subsubsection{数列极限}
+	定义：$\epsilon-N$法定义数列极限.定义中的项数n趋向于无穷.
+	
+	数列极限的性质：唯一性，有界性，保号性，保序性，子列的归并性.
+	
+   {\heiti 注记：}
+   
+   1、收敛是有界的充分不必要条件
+   
+   2、子列的归并性常用于证明极限不存在
+	
+	如何判定极限是否存在：
+	
+	1、利用子列的归并性，子列极限不存在，子列发散，说明原数列极限不存在.
+	
+	2、左右极限不等，极限不存在.
+	
+	3、利用
+	\begin{math}
+		\lim\limits_{x\to x_0}f(x)=A, \lim\limits_{x\to x_0}g(x)=\infty, \lim\limits_{x\to x_0}[f(x)+g(x)]=\infty. 
+	\end{math}
+	
+	\subsubsection{函数极限}
+	函数极限定义：$\epsilon-\delta$法.x趋向可为$x_0$, 0和$+\infty$,$-\infty$.
+	
+	函数极限的性质：唯一性，局部有界性，局部保号性.
+	
+	Heine定理：判断函数极限不存在，说明了函数极限和数列极限的关系.
+	
+	\subsubsection{有关极限的计算}
+	1、极限运算法则（注意运用和差的极限转化为极限的和差时要保证两个极限都存在！）
+	
+	2、放缩，夹逼准则
+	
+	3、等价无穷小代换（注意使用场合为乘法，加法不用等价无穷小）
+	
+	4、洛必达法则
+	
+	5、无穷小/无穷大因子分出法
+	
+	6、第一/第二个重要极限
+	
+	7、泰勒展开
+	
+	8、其它方法，如通分，分子有理化，提取公因式等等
+	
+	{\heiti 尤其注意$1^{\infty}$幂指函数求极限三种求解方法：取指取对，第二个重要极限，公式法.}
+	
+
+	\subsection{二重极限}
+	二重极限对于极限的计算方法基本与一元函数极限的计算相同.
+	
+	但需注意的是，在判断二重极限是否存在时，需恰当选取不同路径（即函数）趋向于同一个点，看是否趋向于同一个值，若趋向的值含有变量，则说明该极限不存在.
+	
+	
+	\subsection{函数的连续性}
+	\subsubsection{有关连续函数基本情况}
+	连续函数的定义
+	\begin{math}
+		\lim\limits_{x\to x_0}f(x)=f(x_0)
+	\end{math}
+	一切初等函数在其定义区间内都是连续的.
+	
+	对于复合连续函数进行极限运算时，极限号可以通过函数号.
+	
+	\subsubsection{闭区间上连续函数的性质}
+	有界性与最大最小值定理
+	
+	零点定理与介值定理
+	
+	一致连续性定理
+	
+    {\heiti 注：对于二元函数的连续性，与一元函数类似.}
+	
+	
+
+	\section{导数和微分}
+	\subsection{一元函数的导数与微分}
+	\subsubsection{导数的定义}
+	导数定义：
+	
+	\begin{math}
+	\text{增量表达式}\,\,\,\,\, f'(x)=\lim\limits_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}
+    \end{math}
+
+    \begin{math}
+    \text{斜率表达式}\,\,\,\,\, f'(x)=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{ x-x_0}
+	\end{math}
+	
+	{\heiti 注记：} 对于求闭区间内的导数在区间端点处应要分左导数和右导数，左导数和右导数用定义求解.
+	
+	在某点处连续：左右导数都存在且相等.
+	
+	可导与连续的关系：{\heiti 可倒必连续，连续不一定可导}
+	
+	导数的几何意义：求切线问题
+	~\\
+	
+	用定义求导的几种类型：
+	
+	1、无函数表达式，不知是否可导
+	
+	2、分段函数求导，断点处应用定义求导
+	
+	3、只有一点可导，没有邻域可导
+	
+	4、利用导数定义求极限
+	
+	5、给定极限的式子求其导数
+	
+	\subsubsection{各种导数的计算}
+	1、四则运算（和差积商的导数运算，公式要记住！）
+	
+	{\heiti 注：}
+	\begin{math}
+		(uvw)'=u'vw+uv'w+uvw'
+	\end{math}
+	
+	2、反函数求导
+	\begin{math}
+		\frac{dy}{dx}=\frac{1}{\frac{dx}{dy}}
+	\end{math}
+	~\\
+	
+	3、复合函数求导：链式法则
+	\begin{math}
+		y=f[g(x)],u=g(x)\,\,\,\,\,\,\,
+		\frac{dy}{dx}=f'(u)\cdot g'(x)
+	\end{math}
+		
+	4、基本求导公式表
+	
+	5、积分上限函数求导：积分变量换成上限变量
+	
+	6、高阶导数：Leibniz公式
+	\begin{math}
+		(uv)^{(n)}=\sum_{k=0}^{n} C_{n}^{k}u^{(n-k)}v^{(k)}
+	\end{math}
+	
+	7、隐函数求导：方程两边同时对x求导，注意把y看成是关于x的函数
+	
+	(或者用求偏导的公式进行求解，放在多元函数微分法板块里)
+	
+	{\heiti 注:}对数求导法：注意取对数时ln|x|要带上绝对值
+	
+	8、参数方程求导法
+	\begin{math}
+		\frac{dy}{dx}=\frac{y'_t}{x'_t}
+	\end{math}
+	
+	9、分段函数求导：
+	
+	（1）先证明分段函数在分界点的连续性（求左右极限，极限值等于函数值）
+	
+	（2）分界点处求左导数和右导数
+	
+	10、切线方程问题
+	
+	\subsubsection{一元函数微分}
+	表达式：
+	\begin{math}
+		\Delta y=A\Delta x+o(\Delta x) (\Delta x \to 0)
+	\end{math}
+	其中$A(x_0)=f'(x_0)$
+	
+	一阶微分形式不变性
+	\begin{math}
+		dy=f(u)du
+	\end{math}
+	其中u可以是自变量或函数.
+	~\\
+	
+	微分是一种{\heiti 以直代曲}的思想.
+	~\\
+	
+	微分的法则与导数求导法则类似.
+	
+	\subsubsection{导数的单调性，凹凸性，极值，最值}
+	导数单调性的判断（一阶导函数），凹凸性的判断（二阶导函数）
+	
+	函数极值点的求解：
+	
+	{\heiti 注：}极值判别法都是充分条件，不满足不代表不存在极值.
+	
+	(1)必要条件：
+	\begin{math}
+	f(x)\text{在}x_0\text{处}f'(x_0)=0
+	\end{math}
+	
+	(2)第一充分条件：左右导数值应变号.
+	
+	(3)第二充分条件：(前提是运用驻点的情况下才使用该条件.)
+	
+	在$x_0$出二阶导小于零，函数取得极大值，二阶导大于零，函数取得极小值.
+	~\\
+	
+	注：唯一驻点在区间内部取得，且为最大/最小值点.
+	
+	\subsection{微分中值定理}
+	{\heiti 注：} 该章节应掌握利用辅助函数法构造辅助函数进行求解微分中值定理的证明题.
+	
+	\subsubsection{Rolle定理}
+	罗尔（Rolle）定理：三个条件满足
+	
+	（1）在闭区间[a,b]上连续;
+	
+	（2）在开区间[a,b]内可导;
+	
+	（3）在区间端点处的函数值相等，即f(a)=f(b);
+	
+	$\Rightarrow$ 在区间（a，b）内至少有一点$\xi$,使得f'($\xi$)=0.
+	
+   {\heiti Rolle定理使用时题目中应出现导函数等于0，且为存在性证明问题，此时我们可以通过构造辅助函数寻找原函数看是否满足Rolle定理.}
+   ~\\
+   
+   \subsubsection{Lagrange中值定理}
+  拉格朗日（Lagrange）中值定理：两个条件满足：
+	
+	（1）在闭区间[a,b]上连续;
+	
+	（2）在开区间[a,b]内可导;
+	
+	$\Rightarrow$ 在区间（a，b）内至少有一点$\xi$,使得
+	\begin{math}
+		f(b)-f(a)=f'(\xi)(b-a)
+	\end{math}
+	
+	另一种表达形式的Lagrange中值定理：
+	\begin{math}
+		\Delta y=f'(x+\theta\Delta x)\cdot \Delta x
+	\end{math}
+	~\\
+	
+	\subsubsection{Cauchy中值定理}
+	柯西(Cauchy)中值定理：两个函数f(x)及F(x)满足以下：
+	
+	（1）在闭区间[a,b]上连续;
+	
+	（2）在开区间[a,b]内可导;
+	
+	（3）对任一x$\in$(a,b),F'(x)$\neq$0,在(a,b)内至少有一点$\xi$,使得
+	\begin{math}
+		\frac{f(b)-f(a)}{F(b)-F(a)}=\frac{f'(\xi)}{F'(\xi)}
+	\end{math}
+	
+	\subsection{Taylor展开}
+	带Peano余项的泰勒展开式：
+	
+	\begin{math}
+		f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^(n)(x_0)}{n!}(x-x_0)^n+o((x-x_0)^n)
+	\end{math}
+	
+	带Lagrange余项的泰勒展开式：
+	
+	\begin{math}
+		f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^(n)(x_0)}{n!}(x-x_0)^n+\frac{f^(n+1)(\xi)}{(n+1)!}(x-x_0)^(n+1)
+	\end{math}
+	
+	{\heiti 注：}记住Maclaurin公式在各种函数的展开形式，解题可用.
+	
+	
+	
+	
+	
+	
+	
+	\subsection{多元函数微分法}
+	该板块具体笔记可点击链接前往阅读：
+	\href{https://mp.weixin.qq.com/s/qv7cNh4w773UMK27lVK1rQ}{https://mp.weixin.qq.com/s/qv7cNh4w773UMK27lVK1rQ}
+	
+	\subsubsection{偏导数的计算及其应用}
+	1、定义法求解(常用于分段函数，求不连续点但有定义的偏导数等)
+	
+	2、先求偏导后代入(适用于函数不太复杂的情形)
+	
+	3、先代入后求偏导(适用于函数复杂，可先代入与求偏导无关的变量，看成一元函数求导)
+	
+	{\heiti 注：}二阶混合偏导数连续则相等，求解抽象函数求偏导问题时一定要合并！
+	
+	4、复合函数求偏导的链式法则(具体函数，抽象函数，注意复合时求二阶偏导，一阶偏导的函数仍然与原函数保持相同的复合结构
+	)
+	~\\
+	
+	隐函数存在定理：确定一元隐函数，二元隐函数，方程组确定的两个二元隐函数
+	~\\
+	
+	全微分形式不变性的应用
+	~\\
+	
+	多元函数微分法几何应用，与向量代数和空间解析几何联系较密切，主要是把切向量和法向量用偏导形式给出，公式上没有多大区别.
+	
+	\subsubsection{方向导数及其梯度}
+	
+	方向导数计算式：
+	\begin{math}
+		\frac{\partial f}{\partial l}\big{|}_{(x_0,y_0)}=f_x(x_0,y_0)\cos\alpha+f_y(x_0,y_0)\cos\beta
+	\end{math}
+	
+	{\heiti 注：}可微$\rightarrow$方向导数存在$\nrightarrow$偏导数存在
+	
+	方向导数是沿着其他方向的变化率，偏导数是沿着坐标轴的变化率.
+	~\\
+	
+	梯度：
+	\begin{math}
+		\textbf{grad}f(x_0,y_0)=\nabla f(x_0,y_0)=f_x(x_0,y_0)\vec{i}+f_y(x_0,y_0)\vec{j}
+	\end{math}
+	
+	\subsubsection{多元函数的极值}
+	
+	极值存在的必要条件：函数$z=f(x,y)$在点$(x_0,y_0)$具有偏导数，且在点$(x_0,y_0)$处有极值，则有
+	\begin{math}
+		f_x(x_0,y_0)=0,f_y(x_0,y_0)=0
+	\end{math}
+	此时$(x_0,y_0)$为该二元函数的驻点.
+	
+	{\heiti 注：偏导数为0或偏导数不存在的点为极值点，驻点不一定是极值点.}
+	~\\
+	
+	极值存在的{\heiti 充分条件}：设函数$z=f(x,y)$在点$(x_0,y_0)$的某邻域内连续且有一阶及二阶连续偏导数，又$f_x(x_0,y_0)=0,f_y(x_0,y_0)=0$，令
+	\begin{math}
+		f_{xx}(x_0,y_0)=A,	f_{xy}(x_0,y_0)=B,	f_{yy}(x_0,y_0)=C
+	\end{math}
+	则$f(x,y)$在$(x_0,y_0)$处是否取得极值的条件如下：
+	
+	(1)$AC-B^2>0$时具有极值，且当A<0时有极大值，当A>0时有极小值.
+	
+	(2))$AC-B^2<0$时没有极值.
+	
+	(3))$AC-B^2=0$时可能有极值，也可能没有极值，需要另作讨论.~\\
+	~\\
+	
+	拉格朗日乘数法解决条件极值问题
+	\begin{math}
+		L(x,y)=f(x,y)+\lambda\varphi(x,y)
+	\end{math}
+	
+     let 
+	$
+	 \begin{cases}
+		f_x(x,y)+\lambda\varphi_x(x,y)=0\\
+		f_y(x,y)+\lambda\varphi_y(x,y)=0\\
+		\varphi (x,y)=0
+	\end{cases}
+	$
+	即可解出.
+	
+	\subsubsection{二元函数泰勒展开}
+	与一元函数类似，在函数某一点处近似.
+	
+
+	\section{积分}
+	\subsection{一元函数的不定积分与定积分}
+	
+	
+	
+	
+	
+	
+	\subsection{二重积分}
+	
+	
+	
+	
+	
+	
+	
+	\subsection{三重积分}
+	
+	
+	
+	
+	
+	
+	
+	\subsection{重积分的应用}
+	
+	
+	
+	
+	
+	
+	
+	\subsection{曲线积分与曲面积分}
+	
+	
+	
+	
+	
+	
+	
+	\section{微分方程}
+	
+	
+	
+	
+	
+	
+	
+	\section{向量代数与空间解析几何}
+	\section{无穷级数}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
